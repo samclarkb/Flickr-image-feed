@@ -5,78 +5,17 @@ import { useState, useEffect } from 'react'
 import ImageComponent from './components/ImageComponent'
 
 export default function Home() {
-	// const [data, setData] = useState(null)
-	// const [loading, setLoading] = useState(true)
-	// const [error, setError] = useState(null)
-
-	// useEffect(() => {
-	// 	fetch(
-	// 		'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=86f4b616767d29da34b4d5b7953575ab&tags=cats&format=json&nojsoncallback=1&api_sig=ff00859f2582dd74e2911143c4537c18'
-	// 	)
-	// 		.then(response => response.json())
-	// 		.then(Data => console.log(Data))
-	// 		.catch(err => {
-	// 			console.log(err.message)
-	// 		})
-	// }, [])
-
-	// const [photos, setPhotos] = useState([])
-
-	// const fetchData = () => {
-	// 	fetch(
-	// 		'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=86f4b616767d29da34b4d5b7953575ab&tags=cats&format=json&nojsoncallback=1&api_sig=ff00859f2582dd74e2911143c4537c18'
-	// 	)
-	// 		.then(response => {
-	// 			return response.json()
-	// 		})
-	// 		.then(data => {
-	// 			setPhotos(data)
-	// 			console.log(data)
-	// 		})
-	// }
-
-	// useEffect(() => {
-	// 	fetchData()
-	// }, [])
-
-	// const afbeelding =
-	// 'https://farm' +
-	// photo.farm +
-	// '.staticflickr.com/' +
-	// photo.server +
-	// '/' +
-	// photo.id +
-	// '_' +
-	// photo.secret +
-	// '.jpg'
-
 	const [photos, setPhotos] = useState([])
 
 	const getPhotoRequest = async () => {
 		const url =
-			'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=86f4b616767d29da34b4d5b7953575ab&tags=cats&format=json&nojsoncallback=1&api_sig=ff00859f2582dd74e2911143c4537c18'
+			'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=86f4b616767d29da34b4d5b7953575ab&format=json&nojsoncallback=1&auth_token=72157720841947456-b67a0b9be0e40840&api_sig=c25ef8c7bf94ed6a302c5d58530f75c8'
 
 		const response = await fetch(url)
 		const data = await response.json()
 
 		console.log(data.photos.photo)
 		setPhotos(data.photos.photo)
-
-		// const bloebie = data => {
-		// 	let imgArray = data.photos.photo.map(photo => {
-		// 		const srcPath =
-		// 			'https://farm' +
-		// 			photo.farm +
-		// 			'.staticflickr.com/' +
-		// 			photo.server +
-		// 			'/' +
-		// 			photo.id +
-		// 			'_' +
-		// 			photo.secret +
-		// 			'.jpg'
-		// 		return <img src={srcPath}></img>
-		// 	})
-		// }
 	}
 
 	useEffect(data => {
@@ -92,81 +31,9 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				{/* <h1 className={styles.title}>
-					Welcome to <a href="https://nextjs.org">Next.js!</a>
-				</h1> */}
-				{/* {loading && <div>A moment please...</div>}
-				{error && <div>{`There is a problem fetching the post data - ${error}`}</div>}
-				<ul>
-					{data &&
-						data.map(({ id, title }) => (
-							<li key={id}>
-								{console.log(id)}
-								<h3>{title}</h3>
-							</li>
-						))}
-				</ul> */}
-
-				{/* <div>
-					{photos.length > 0 && (
-						<ul>
-							{photos.map(photo => (
-								<li key={photo.id}>{photo.owner}</li>
-							))}
-							{console.log('hello')}
-						</ul>
-					)}
-				</div> */}
-
-				{/* <p>Het lukt niet</p> */}
-
+				<input type="text"></input>
 				<ImageComponent photos={photos} />
-
-				{/* <p className={styles.description}>
-					Get started by editing <code className={styles.code}>pages/index.js</code>
-				</p> */}
-
-				{/* <div className={styles.grid}>
-					<a href="https://nextjs.org/docs" className={styles.card}>
-						<h2>Documentation &rarr;</h2>
-						<p>Find in-depth information about Next.js features and API.</p>
-					</a>
-
-					<a href="https://nextjs.org/learn" className={styles.card}>
-						<h2>Learn &rarr;</h2>
-						<p>Learn about Next.js in an interactive course with quizzes!</p>
-					</a>
-
-					<a
-						href="https://github.com/vercel/next.js/tree/master/examples"
-						className={styles.card}
-					>
-						<h2>Examples &rarr;</h2>
-						<p>Discover and deploy boilerplate example Next.js projects.</p>
-					</a>
-
-					<a
-						href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-						className={styles.card}
-					>
-						<h2>Deploy &rarr;</h2>
-						<p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-					</a>
-				</div> */}
 			</main>
-
-			{/* <footer className={styles.footer}>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{' '}
-					<span className={styles.logo}>
-						<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-					</span>
-				</a>
-			</footer> */}
 		</div>
 	)
 }

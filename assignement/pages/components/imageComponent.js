@@ -6,7 +6,7 @@ const ImageComponent = props => {
 			<ul>
 				{props.photos.map(photo => (
 					<li>
-						<h2 key={photo.id}>{photo.title}</h2>
+						{/* <h2 key={photo.id}>{photo.title}</h2> */}
 
 						<img
 							src={
