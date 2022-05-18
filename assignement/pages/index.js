@@ -8,18 +8,15 @@ export default function Home() {
 
 	const key = 'f301fdef5502a7cb0f561598b32a3691' // Flickr acces key
 
-	const getData = tag => {
-		tag.target.value
-	}
-	let setSearchTag = getData()
+	const [searchValue, setSearchValue] = useState('Nature')
 
-	const [value, setValue] = useState('')
-
-	const handleEnter = e => {
-		if (e.key === 'Enter') {
-			return handleSubmit(value)
-		}
+	const handleButtonClick = () => {
+		let inputValue = document.getElementById('userInput')
+		console.log('click')
+		setSearchValue(inputValue.value)
 	}
+
+	let setSearchTag = searchValue
 
 	const getPhotoRequest = async () => {
 		const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&tags=${setSearchTag}&per_page=100&page=1&format=json&nojsoncallback=1`
@@ -27,13 +24,15 @@ export default function Home() {
 		const response = await fetch(url)
 		const data = await response.json()
 
-		console.log(data.photos.photo)
 		setPhotos(data.photos.photo)
 	}
 
-	useEffect(data => {
-		getPhotoRequest(data)
-	}, [])
+	useEffect(
+		data => {
+			getPhotoRequest(data)
+		},
+		[searchValue] //
+	)
 
 	return (
 		<div className={styles.container}>
@@ -43,22 +42,18 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<header>
-				<form>
-					<input
-						id="userInput"
-						type="text"
-						placeholder="Search.."
-						onChange={getData}
-						// onKeyDown={handleEnter}
-						// value={value}
-					></input>
-					<button type="submit" onClick={() => handleSubmit(value)}>
-						Search
-					</button>
-				</form>
+				<input
+					id="userInput"
+					type="text"
+					placeholder="Search.."
+					// onChange={getData}
+					// onKeyDown={handleEnter}
+					// value={value}
+				></input>
+				<button onClick={handleButtonClick}>Search</button>
 			</header>
 
-			<p id="reminder"></p>
+			<p id="reminder">Results for: {searchValue}</p>
 
 			<main className={styles.main}>
 				<ImageComponent photos={photos} />

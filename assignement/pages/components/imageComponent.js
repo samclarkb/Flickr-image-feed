@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ImageComponent = props => {
 	return (
@@ -6,8 +6,6 @@ const ImageComponent = props => {
 			<ul>
 				{props.photos.map(photo => (
 					<li>
-						{/* <h2 key={photo.id}>{photo.title}</h2> */}
-
 						<img
 							src={
 								'https://farm' +
