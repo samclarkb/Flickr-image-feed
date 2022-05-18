@@ -12,16 +12,20 @@ body {
 }
 
 body > div {
-	max-width: 75em;
-	margin: 200em 0 0;
+	max-width: 70em;
+	margin: 310em 0 0;
 }
 
 body > div ul li:nth-of-type(3n) {
 	grid-column: span 3;
 }
 
-body > div ul li:nth-of-type(5n) {
+body > div ul li:nth-of-type(1) {
 	grid-row: span 2;
+}
+
+body > div ul li:nth-of-type(5n) {
+	grid-row: span 3;
 }
 
 body > div ul li:nth-of-type(7n) {
@@ -32,8 +36,8 @@ body > div ul {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	grid-auto-flow: dense;
-	grid-auto-rows: 100px 300px;
-	grid-gap: 10px;
+	grid-auto-rows: 200px 300px;
+	grid-gap: 5px;
 	margin: 0;
 	padding: 0;
 }
@@ -43,6 +47,7 @@ li {
 	height: 100%;
 	list-style: none;
 	overflow: hidden;
+	border-radius: 0.25em;
 }
 
 ul li > img {
@@ -55,10 +60,35 @@ ul li > img {
 
 ul li > img:hover {
 	/* cursor: pointer; */
-	transform: scale(1.2);
-	opacity: 0.75;
+	transform: scale(1.1);
+	opacity: 0.85;
 }
 
 input {
 	margin-top: 20em;
+	margin-right: 0.5em;
+	width: 25em;
+	padding: 0.5em;
+	border: solid 0.05em grey;
+	border-radius: 1em;
+	text-decoration: none;
+}
+
+button {
+	width: 5em;
+	border-radius: 1em;
+	color: white;
+	border: solid 0.05em rgba(0, 0, 0, 0.75);
+	padding: 0.5em;
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 500px) {
+	body > div ul {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	input {
+		width: 15em;
+	}
 }
