@@ -13,7 +13,6 @@ body {
 
 body > div {
 	max-width: 70em;
-	margin: 310em 0 0;
 }
 
 body > div ul li:nth-of-type(3n) {
@@ -65,22 +64,32 @@ ul li > img:hover {
 }
 
 input {
-	margin-top: 20em;
-	margin-right: 0.5em;
-	width: 25em;
+	margin-top: 5em;
+	outline: none;
+	width: 40em;
 	padding: 0.5em;
+	border-bottom-left-radius: 1em;
+	border-top-left-radius: 1em;
 	border: solid 0.05em grey;
-	border-radius: 1em;
 	text-decoration: none;
+}
+
+input:focus {
+	box-shadow: 0 0 5px purple;
+	padding: 0.5em;
+	margin-top: 5em;
+	border: 0.05em solid purple;
+	outline: none;
 }
 
 button {
 	width: 5em;
-	border-radius: 1em;
+	border-bottom-right-radius: 1em;
+	border-top-right-radius: 1em;
 	color: white;
 	border: solid 0.05em rgba(0, 0, 0, 0.75);
 	padding: 0.5em;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: purple;
 }
 
 @media screen and (max-width: 500px) {
@@ -91,4 +100,13 @@ button {
 	input {
 		width: 15em;
 	}
+}
+
+h2 {
+	color: purple;
+}
+
+h2 span {
+	font-weight: 300;
+	color: black;
 }
