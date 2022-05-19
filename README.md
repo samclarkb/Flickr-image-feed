@@ -3,6 +3,8 @@
 ## :computer: About
 I've made an image feed with images from the Flickr API. You can search for certain images when using the search bar.
 
+<img src='https://github.com/samclarkb/Miyagami-code-challenge-Sam-Boot/blob/main/public/images/Preview.gif' width='750px'/>
+
 ## :clipboard: Features
 - Viewing images
 - Search for specifc images
