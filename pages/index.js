@@ -1,6 +1,6 @@
 import Head from 'next/head'
 // import '/styles/globals.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import ImageComponent from './components/ImageComponent'
 
 export default function Home() {
