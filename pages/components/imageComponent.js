@@ -5,7 +5,7 @@ const ImageComponent = props => {
 		<div>
 			<ul>
 				{props.photos.map(photo => (
-					<li>
+					<li key={'key'}>
 						<img
 							src={
 								'https://farm' +
