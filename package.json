@@ -2,9 +2,9 @@
 	"name": "assignement",
 	"version": "0.1.0",
 	"private": true,
-    "engines": {
-        "node": "16.x"
-      },
+	"engines": {
+		"node": "16.x"
+	},
 	"scripts": {
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
@@ -21,6 +21,7 @@
 	},
 	"devDependencies": {
 		"eslint": "^8.15.0",
+		"eslint-plugin-react": "^7.30.0",
 		"gh-pages": "^4.0.0"
 	}
 }
